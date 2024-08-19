@@ -69,11 +69,11 @@ class ProductController extends Controller
             'price' => $request->input('price')
         ];
 
-        $viewData=[];
+        $viewData = [];
         $viewData['title'] = 'Products - Online Store';
         $viewData['subtitle'] = 'Product creation';
         $viewData['productName'] = $product['name'];
         array_push(ProductController::$products, $product);
-        return view('product.successCreation')->with('viewData',$viewData);
+        return view('product.successCreation')->with('viewData', $viewData);
     }
 }

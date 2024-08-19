@@ -2,7 +2,7 @@
 @section('title', $viewData['title'])
 @section('subtitle', $viewData['subtitle'])
 @section('content')
-<table class="table table-dark table-striped-columns">
+<table class="table table-striped-columns bg-primary text-white">
     <thead>
         <tr>
             <th scope="col">Email</th>

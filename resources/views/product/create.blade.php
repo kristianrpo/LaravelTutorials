@@ -20,7 +20,7 @@
               value="{{ old('name') }}" />
             <input type="text" class="form-control mb-2" placeholder="Enter price" name="price"
               value="{{ old('price') }}" />
-            <input type="submit" class="btn btn-primary" value="Send" />
+            <input type="submit" class="btn bg-primary text-white" value="Send" />
           </form>
         </div>
       </div>
