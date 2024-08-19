@@ -49,18 +49,20 @@ class ProductController extends Controller
 
     public function create(): View
     {
-        $viewData = []; //to be sent to the view
+        $viewData = [];
         $viewData['title'] = 'Create product';
         return view('product.create')->with('viewData', $viewData);
     }
 
     public function save(Request $request)
     {
+        // if an error happens, laravel will return an exception to the form view.
         $request->validate([
             'name' => 'required',
-            'price' => 'required'
+            'price' => 'required|integer|gt:0'
         ]);
+
+        // Dump and die: execute variable content and stop the execution of the script.
         dd($request->all());
-        //here will be the code to call the model and save it to the database
     }
 }
