@@ -12,9 +12,9 @@
     </thead>
     <tbody>
         <tr>
-            <td>{{$viewData['email']}}</td>
-            <td>{{$viewData['address']}}</td>
-            <td>{{$viewData['phoneNumber']}}</td>
+            <td>{{ $viewData['email'] }}</td>
+            <td>{{ $viewData['address'] }}</td>
+            <td>{{ $viewData['phoneNumber'] }}</td>
         </tr>
     </tbody>
 </table>
