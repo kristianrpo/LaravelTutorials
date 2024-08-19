@@ -54,15 +54,26 @@ class ProductController extends Controller
         return view('product.create')->with('viewData', $viewData);
     }
 
-    public function save(Request $request)
+    public function save(Request $request): View
     {
-        // if an error happens, laravel will return an exception to the form view.
+        // if an error happens with the request, laravel will return an exception to the form view.
         $request->validate([
             'name' => 'required',
             'price' => 'required|integer|gt:0'
         ]);
 
-        // Dump and die: execute variable content and stop the execution of the script.
-        dd($request->all());
+        $product = [
+            'id' => count(ProductController::$products) + 1,
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price')
+        ];
+
+        $viewData=[];
+        $viewData['title'] = 'Products - Online Store';
+        $viewData['subtitle'] = 'Product creation';
+        $viewData['productName'] = $product['name'];
+        array_push(ProductController::$products, $product);
+        return view('product.successCreation')->with('viewData',$viewData);
     }
 }
