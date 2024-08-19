@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', $data['title'])
-@section('subtitle', $data['subtitle'])
+@section('title', $viewData['title'])
+@section('subtitle', $viewData['subtitle'])
 @section('content')
 <table class="table table-dark table-striped-columns">
     <thead>
@@ -12,9 +12,9 @@
     </thead>
     <tbody>
         <tr>
-            <td>{{$data['email']}}</td>
-            <td>{{$data['address']}}</td>
-            <td>{{$data['phoneNumber']}}</td>
+            <td>{{$viewData['email']}}</td>
+            <td>{{$viewData['address']}}</td>
+            <td>{{$viewData['phoneNumber']}}</td>
         </tr>
     </tbody>
 </table>
