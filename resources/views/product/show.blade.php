@@ -10,12 +10,18 @@
     <div class="col-md-8">
       <div class="card-body">
         @if($viewData['product']['price'] > 100)
-        <h5 class="card-title text-danger"> {{ $viewData['product']['name'] }} </h5>
+        <h5 class="card-title text-danger">{{ $viewData['product']['name'] }}</h5>
         @else
-        <h5 class="card-title"> {{ $viewData['product']['name'] }} </h5>
+        <h5 class="card-title">{{ $viewData['product']['name'] }}</h5>
         @endif
-        <p class="card-text"> {{ $viewData['product']['description'] }} </p>
-        <p class="card-text"> <b>Price: </b> {{ $viewData['product']['price'] }} <b>$</b> </p>
+        <p class="card-text"><b>Price: </b>{{ $viewData['product']['price'] }}<b>$</b></p>
+        <ul>
+          @foreach($viewData["product"]->comments as $comment)
+          <li>
+            <p>{{ $comment->getDescription() }}</p>
+          </li>
+          @endforeach
+        </ul>
       </div>
     </div>
   </div>
