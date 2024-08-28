@@ -11,7 +11,7 @@ class Comment extends Model
     use HasFactory;
 
     /**
-     * PRODUCT ATTRIBUTES
+     * COMMENT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
      * $this->attributes['description'] - string - contains the comment description
      * $this->product - Product - contains the associated Product
@@ -53,7 +53,7 @@ class Comment extends Model
         return $this->product;
     }
 
-    public function setProduct($product): void
+    public function setProduct(Product $product): void
     {
         $this->product = $product;
     }

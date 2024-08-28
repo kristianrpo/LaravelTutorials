@@ -44,22 +44,13 @@ class ProductController extends Controller
 
     public function save(Request $request): View|RedirectResponse
     {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|integer|gt:0',
-        ]);
-
+        Product::validate($request);
         $product = Product::create($request->only(['name', 'price']));
-
-        if ($product) {
-            $viewData = [];
-            $viewData['title'] = 'Products - Online Store';
-            $viewData['subtitle'] = 'Product created';
-            $viewData['productName'] = $product->name;
-
-            return view('product.save')->with('viewData', $viewData);
-        } else {
-            return back();
-        }
+        
+        $viewData = [];
+        $viewData['title'] = 'Products - Online Store';
+        $viewData['subtitle'] = 'Product created';
+        $viewData['productName'] = $product->name;
+        return view('product.save')->with('viewData', $viewData);
     }
 }

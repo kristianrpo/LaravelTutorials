@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
@@ -20,6 +21,14 @@ class Product extends Model
      */
     protected $fillable = ['name', 'price'];
 
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|integer|gt:0',
+        ]);
+    }
+
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -30,7 +39,7 @@ class Product extends Model
         return $this->attributes['name'];
     }
 
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->attributes['name'] = $name;
     }
@@ -40,7 +49,7 @@ class Product extends Model
         return $this->attributes['price'];
     }
 
-    public function setPrice($price): void
+    public function setPrice(int $price): void
     {
         $this->attributes['price'] = $price;
     }
